@@ -13,8 +13,12 @@ public class DemoController {
     private DemoService demoService;
 
     @GetMapping("/encrypt")
-    public String add(@RequestParam String text) {
-        return demoService.encrypt(text);
+    public String encrypt(@RequestParam String text, @RequestParam int key) {
+        return demoService.encrypt(text, key);
+    }
+    @GetMapping("/decrypt")
+    public String decrypt(@RequestParam int key) {
+        return demoService.decrypt(key);
     }
 
 }
